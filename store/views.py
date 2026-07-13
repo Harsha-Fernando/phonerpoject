@@ -1,6 +1,6 @@
 """Views for the store app."""
 
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
 from .models import Product
 
@@ -12,6 +12,10 @@ def storehome(request):
         'products': products
     }
     return render(request, 'store/storehome.html', context)
+
+def productinfo(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    return render(request, 'store/productinfo.html', {'product': product})
 
 def aboutus(request):
     return render(request, 'store/aboutus.html', {'title': 'About Us'})
