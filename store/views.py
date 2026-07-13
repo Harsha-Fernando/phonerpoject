@@ -22,3 +22,6 @@ def aboutus(request):
 
 def reviews(request):
     return render(request, 'store/reviews.html', {'title': 'Reviews'})
+
+
+
